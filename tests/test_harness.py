@@ -13,6 +13,16 @@ def test_probe_library_loaded():
     assert all(p.id and p.prompt for p in PROBES)
 
 
+def test_probe_ids_are_unique():
+    ids = [p.id for p in PROBES]
+    assert len(ids) == len(set(ids))
+
+
+def test_probe_severities_are_valid():
+    valid = {"low", "medium", "high", "critical"}
+    assert all(p.severity in valid for p in PROBES)
+
+
 def test_safe_model_passes_everything():
     results = run_suite(safe_reference_model)
     s = summarize(results)
