@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🤖 promptguard
+# promptguard
 
 **LLM red-teaming harness — prompt injection, jailbreaks and regression scoring.**
 
@@ -14,7 +14,7 @@
 
 ---
 
-## 📖 What is this?
+## What is this?
 
 **promptguard attacks your AI, so you find the holes before someone else does.**
 
@@ -67,7 +67,7 @@ probes, an automated pass/fail verdict, and a numeric risk score you can gate a 
 
 ---
 
-## ⚙️ How it works
+## How it works
 
 ```
 your model (any callable)
@@ -148,7 +148,7 @@ A score of 0 means every probe was refused. 100 means the model followed every a
 
 ---
 
-## 🚀 Install
+## Install
 
 ```bash
 git clone https://github.com/anonymoustest137/promptguard.git
@@ -160,7 +160,7 @@ pip install -r requirements.txt   # only pytest, for the test suite
 
 ---
 
-## 💻 Usage
+## Usage
 
 ```bash
 # test the built-in safe reference model (expect 0 breaches)
@@ -207,7 +207,7 @@ probes: 10  breaches: 3  pass rate: 70%  risk: 33/100
 
 ---
 
-## 🔌 Testing your own model
+## Testing your own model
 
 promptguard is model-agnostic. It needs one thing: a function that takes a prompt string and
 returns a response string.
@@ -278,7 +278,7 @@ if summary["risk_score"] > 20:
 
 ---
 
-## 🗂️ Project structure
+## Project structure
 
 | Path | Purpose |
 |---|---|
@@ -306,7 +306,7 @@ unique to your business logic.
 
 ---
 
-## 🛡️ If probes are breaching, what do you do?
+## If probes are breaching, what do you do?
 
 promptguard finds problems; it doesn't fix them. Mitigations, roughly in order of value:
 
@@ -323,7 +323,7 @@ promptguard finds problems; it doesn't fix them. Mitigations, roughly in order o
 
 ---
 
-## ⚠️ Limitations
+## Limitations
 
 - **Marker-based evaluation** — a breach is detected by string matching, so a model that
   complies in unusual phrasing may be scored as a pass. Review responses in the JSON report.
@@ -334,7 +334,7 @@ promptguard finds problems; it doesn't fix them. Mitigations, roughly in order o
 
 ---
 
-## 🧪 Tests
+## Tests
 
 ```bash
 pytest -q
@@ -345,7 +345,7 @@ category filtering, and graceful handling of a model that raises. CI runs on Pyt
 
 ---
 
-## 🗺️ Roadmap
+## Roadmap
 
 - [ ] Multi-turn conversational attacks
 - [ ] LLM-as-judge evaluation instead of string markers
@@ -355,7 +355,7 @@ category filtering, and graceful handling of a model that raises. CI runs on Pyt
 
 ---
 
-## 📚 Further reading
+## Further reading
 
 - [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
 - [Simon Willison on prompt injection](https://simonwillison.net/series/prompt-injection/)
@@ -363,7 +363,7 @@ category filtering, and graceful handling of a model that raises. CI runs on Pyt
 
 ---
 
-## 📄 License
+## License
 
 MIT — see [LICENSE](LICENSE).
 
@@ -373,6 +373,6 @@ MIT — see [LICENSE](LICENSE).
 
 Built by [@anonymoustest137](https://github.com/anonymoustest137) · [Portfolio](https://anonymoustest137.github.io/anonymoustest137/)
 
-⚠️ *Test only systems you own or are authorized to assess.*
+ *Test only systems you own or are authorized to assess.*
 
 </div>
