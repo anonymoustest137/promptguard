@@ -23,3 +23,26 @@ jobs:
           pip install pytest
       - name: Run tests
         run: pytest -q
+      - name: Self-check - CLI still runs against reference models
+        run: |
+          python -m promptguard.cli -m safe --fail-above 0
+          python -m promptguard.cli -m vulnerable --fail-above 100
+          python -m promptguard.cli -m vulnerable --mutate --json > /dev/null
+          python -m promptguard.cli -m vulnerable --multiturn > /dev/null
+          python -m promptguard.cli -m vulnerable --html report.html --out run.json
+          python -m promptguard.cli -m safe --diff run.json --html report2.html
+
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build and install package
+        run: |
+          python -m pip install --upgrade pip build
+          python -m build
+          pip install dist/*.whl
+      - name: Console script smoke test
+        run: promptguard -m safe --version && promptguard -m vulnerable

@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "promptguard"
+version = "0.2.0"
+description = "LLM red-teaming harness - prompt injection, jailbreaks and regression scoring."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "anonymoustest137" }]
+keywords = ["llm", "security", "prompt-injection", "jailbreak", "red-team", "ai-safety"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.12",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Security",
+  "Intended Audience :: Developers",
+]
+dependencies = []
+
+[project.optional-dependencies]
+openai = ["openai>=1.0"]
+anthropic = ["anthropic>=0.25"]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+promptguard = "promptguard.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/anonymoustest137/promptguard"
+
+[tool.setuptools.packages.find]
+include = ["promptguard*"]
